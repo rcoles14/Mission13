@@ -1,43 +1,27 @@
-﻿@model Bowler
+﻿@{
+    ViewData["Title"] = "Add/Edit Bowler";
+}
+@model Bowler
 <h1>Add or Edit Bowler</h1>
-<br /><br />
+<br />
+<br />
 <div class="text-center form-group">
     <form method="post">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
-            <label asp-for="BowlerFirstName">First Name</label>
+            <label asp-for="BowlerFirstName" class="p-2">First Name</label>
             <input class="form-control-sm" asp-for="BowlerFirstName" /><br />
         </div>
         <div class="form-group">
-            <label asp-for="BowlerMiddleInit">Middle Initial</label>
-            <input class="form-control-sm" asp-for="BowlerMiddleInit" maxlength="1"/><br />
+            <label asp-for="BowlerMiddleInit" class="p-2">Middle Initial</label>
+            <input class="form-control-sm" asp-for="BowlerMiddleInit" maxlength="1" /><br />
         </div>
         <div class="form-group">
-            <label asp-for="BowlerLastName">Last Name</label>
+            <label asp-for="BowlerLastName" class="p-2">Last Name</label>
             <input class="form-control-sm" asp-for="BowlerLastName" /><br />
         </div>
         <div class="form-group">
-            <label asp-for="BowlerAddress">Address</label>
-            <input class="form-control-sm" asp-for="BowlerAddress" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="BowlerCity">City</label>
-            <input class="form-control-sm" asp-for="BowlerCity" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="BowlerState">State</label>
-            <input class="form-control-sm" asp-for="BowlerState" maxlength="2"/><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="BowlerZip">ZIP</label>
-            <input class="form-control-sm" asp-for="BowlerZip" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="BowlerPhoneNumber">Phone Numer</label>
-            <input class="form-control-sm" asp-for="BowlerPhoneNumber" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="Team">Team</label>
+            <label asp-for="TeamID" class="p-2">Team</label>
             <select class="form-control-sm" asp-for="TeamID">
                 <option value="" disabled selected>Select a Team:</option>
                 <option value="">None</option>
@@ -46,9 +30,30 @@
                     <option value="@t.TeamID">@t.TeamName</option>
                 }
             </select>
-            <br />
-            <input type="hidden" asp-for="BowlerID" />
         </div>
+        <div class="form-group">
+            <label asp-for="BowlerAddress" class="p-2">Address</label>
+            <input class="form-control-sm" asp-for="BowlerAddress" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="BowlerCity" class="p-2">City</label>
+            <input class="form-control-sm" asp-for="BowlerCity" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="BowlerState" class="p-2">State</label>
+            <input class="form-control-sm" asp-for="BowlerState" maxlength="2" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="BowlerZip" class="p-2">ZIP</label>
+            <input class="form-control-sm" asp-for="BowlerZip" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="BowlerPhoneNumber" class="p-2">Phone Numer</label>
+            <input class="form-control-sm" asp-for="BowlerPhoneNumber" /><br />
+        </div>
+        <br />
+        <input type="hidden" asp-for="BowlerID" />
+
         <div class="form-group">
             <a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger float-left m-1">Cancel</a>
             <button type="submit" class="btn btn-outline-success float-left m-1">Save</button>
