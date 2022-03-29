@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BowlersViewModel
+@if (ViewBag.Selected == null)
+{
+<h1>All Bowlers</h1>
+}else
+            {
+                <h1>@ViewBag.Selected</h1>
+            }
+  <table class="table table-sm table-bordered table-hover">
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Middle Init</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Phone</th>
+              <th>Edit</th>
+              <th>Delete</th>
+           </tr>
+       </thead>
+      <tbody>
+          @foreach (Bowler b in Model.Bowlers)
+            {
+          <tr>
+              <td>@b.BowlerFirstName</td>
+              <td>@b.BowlerMiddleInit</td>
+              <td>@b.BowlerLastName</td>
+              <td>@b.BowlerAddress</td>
+              <td>@b.BowlerCity</td>
+              <td>@b.BowlerState</td>
+              <td>@b.BowlerZip</td>
+              <td>@b.BowlerPhoneNumber</td>
+              <td><a asp-controller="Home" asp-action="Edit" class="btn btn-sm btn-warning btn-block" asp-route-id="@b.BowlerID">Edit</a></td>
+              <td><a asp-controller="Home" asp-action="Delete" class="btn btn-sm btn-danger btn-block" asp-route-id="@b.BowlerID">Delete</a></td>
+          </tr>
+            }
+
+      </tbody>
+
+  </table>
+<br />
+<a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Add">Add a Bowler</a>
